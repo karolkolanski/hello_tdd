@@ -22,6 +22,9 @@ class TestRegistration(unittest.TestCase):
         driver = self.driver
         register_btn = driver.find_element(By.PARTIAL_LINK_TEXT, "Zarejestruj")
         register_btn.click()
+        #2. Wpisz imię
+        name_input = driver.find_element(By.ID, "firstname")
+        name_input.send_keys("Marcin")
         # Poczekaj chwilę, żeby zobaczyć co się dzieje
         sleep(4)
 
