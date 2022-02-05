@@ -1,6 +1,4 @@
 # Testowany program
 
-# class ProgramHello:
-#     pass
-
-print(__name__)
+class ProgramHello:
+    pass
