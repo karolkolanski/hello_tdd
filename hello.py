@@ -1,4 +1,5 @@
 # Testowany program
 
 class ProgramHello:
-    pass
+    def welcome(self):
+        return "Hello, world!"
