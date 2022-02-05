@@ -13,6 +13,7 @@ class TestRegistration(unittest.TestCase):
         accept_button.click()
 
     def tearDown(self):
+        self.driver.save_screenshot("skrin.png")
         # Po teście wyłączamy przeglądarkę
         self.driver.quit()
 
@@ -27,7 +28,8 @@ class TestRegistration(unittest.TestCase):
         name_input.send_keys("Marcin")
         # 3. Wpisz nazwisko
         lastname_input = driver.find_element(By.ID, "lastname")
-        lastname_input.send_keys("Nowak")
+        lastname_input.click()
+        # lastname_input.send_keys("Nowak")
         # 4. Wpisz niepoprawny e-mail
         email_input = driver.find_element(By.ID, "email_address")
         email_input.send_keys("jhdjdshjfhdsj.jhjk")
