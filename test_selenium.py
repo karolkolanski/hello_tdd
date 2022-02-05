@@ -25,6 +25,24 @@ class TestRegistration(unittest.TestCase):
         #2. Wpisz imię
         name_input = driver.find_element(By.ID, "firstname")
         name_input.send_keys("Marcin")
+        # 3. Wpisz nazwisko
+        lastname_input = driver.find_element(By.ID, "lastname")
+        lastname_input.send_keys("Nowak")
+        # 4. Wpisz niepoprawny e-mail
+        email_input = driver.find_element(By.ID, "email_address")
+        email_input.send_keys("jhdjdshjfhdsj.jhjk")
+
+        # UWAGA! TUTAJ BĘDZIE TEST!
+        # Klikam w nazwisko
+        lastname_input.click()
+        # Odszukuję wyświetlone komunikaty o błędach
+        errors = driver.find_elements(By.XPATH, '//span[@class="help-block form-error"]')
+        # Sprawdzam, czy jest widoczny jeden błąd
+        self.assertEqual(1, len(errors))
+        # Sprawdzam treść komunikatu
+        error = errors[0]
+        self.assertEqual("Wprowadzono niepoprawny adres e-mail", error.text)
+
         # Poczekaj chwilę, żeby zobaczyć co się dzieje
         sleep(4)
 
